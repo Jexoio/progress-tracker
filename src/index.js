@@ -2,8 +2,9 @@
  * @class ExampleComponent
  */
 
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { colors } from '@atlaskit/theme';
 import ProgressBar, { Segment } from './progress-bar';
 
 import styles from './styles.css'
@@ -17,13 +18,13 @@ export default class ExampleComponent extends Component<Props> {
       isCompact: false,
       segments: [
         {
-          proportionComplete: 5,
-          color: '#36B37E',
+          proportionComplete: 50,
+          color: colors.G400,
           label: 'Done'
         },
         {
-          proportionComplete: 2,
-          color: '#0052CC',
+          proportionComplete: 20,
+          color: colors.B400,
           label: 'In progress'
         }
       ]
