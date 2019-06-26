@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Tooltip from '@atlaskit/tooltip';
 import PropTypes from 'prop-types';
-import { colors } from '@atlaskit/theme';
 import { Segment, InnerSegment } from './styled';
 
 export default class ProgressBarSegment extends Component {
@@ -13,7 +12,7 @@ export default class ProgressBarSegment extends Component {
     }
 
     static defaultProps = {
-      color: colors.B400,
+      color: '#0052CC',
       proportion: 0,
       tooltip: null,
       isCompact: false

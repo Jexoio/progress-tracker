@@ -4,7 +4,6 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { colors } from '@atlaskit/theme';
 import ProgressBar, { Segment } from './progress-bar';
 
 export default class ProgressTracker extends Component {
@@ -17,12 +16,12 @@ export default class ProgressTracker extends Component {
     segments: [
       {
         proportionComplete: .5,
-        color: colors.G400,
+        color: '#00875A',
         label: 'Done'
       },
       {
         proportionComplete: .2,
-        color: colors.B400,
+        color: '#0052CC',
         label: 'In progress'
       }
     ]
