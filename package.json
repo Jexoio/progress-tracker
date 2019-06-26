@@ -1,6 +1,6 @@
 {
   "name": "@jexo/progress-tracker",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Segmented progress tracker component for react",
   "main": "./dist/index.js",
   "scripts": {
