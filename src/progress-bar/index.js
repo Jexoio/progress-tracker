@@ -1,25 +1,30 @@
-import React, { Component, type ChildrenArray, type Element } from 'react';
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Segment from './progress-bar-segment';
 import { ProgressBarContainer } from './styled';
 
-type Props = {
-    children: ChildrenArray<Element<typeof Segment>> | null,
-    isCompact: boolean,
-};
+export default class ProgressBar extends Component {
+    static propTypes = {
+      isCompact: PropTypes.bool,
+      children: PropTypes.array
+    }
 
-export default class ProgressBar extends Component<Props> {
     static defaultProps = {
-        children: null,
-        isCompact: true,
+      children: null,
+      isCompact: true,
     };
 
     render() {
-        return (
-          <ProgressBarContainer isCompact={this.props.isCompact}>
-              {this.props.children}
-          </ProgressBarContainer>
-        )
+      const {
+        isCompact,
+        children
+      } = this.props;
+
+      return (
+        <ProgressBarContainer isCompact={isCompact}>
+          {children}
+        </ProgressBarContainer>
+      )
     }
 }
 

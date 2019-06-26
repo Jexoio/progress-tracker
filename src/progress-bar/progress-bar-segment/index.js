@@ -1,34 +1,41 @@
 import React, { Component } from 'react';
 import Tooltip from '@atlaskit/tooltip';
+import PropTypes from 'prop-types';
 import { colors } from '@atlaskit/theme';
-import { Segment } from './styled';
+import { Segment, InnerSegment } from './styled';
 
-type Props = {
-    color: string,
-    proportion: number,
-    tooltip: string | null,
-};
-
-export default class ProgressBarSegment extends Component<Props> {
-    static defaultProps = {
-        color: colors.B400,
-        proportion: 0,
-        tooltip: null,
-    };
-
-    renderSegment() {
-      const { color, proportion } = this.props;
-      const width = proportion > 0 ? `${proportion * 100}%` : '0';
-      return(
-        <Segment color={color} width={width} />
-      )
+export default class ProgressBarSegment extends Component {
+    static propTypes = {
+      color: PropTypes.string,
+      proportion: PropTypes.number,
+      tooltip: PropTypes.string,
+      isCompact: PropTypes.bool
     }
 
+    static defaultProps = {
+      color: colors.B400,
+      proportion: 0,
+      tooltip: null,
+      isCompact: false
+    };
+
     render() {
-      if (!this.props.tooltip) {
-          return this.renderSegment();
+      const {
+        color,
+        proportion,
+        tooltip,
+        isCompact
+      } = this.props;
+      const width = proportion > 0 ? `${proportion * 100}%` : '0';
+
+      if (!tooltip) {
+        return <Segment color={color} width={width} />;
       }
 
-      return <Tooltip content={this.props.tooltip}>{this.renderSegment()}</Tooltip>;
+      return(
+        <Segment color={color} width={width}>
+          <Tooltip content={tooltip} position="top"><InnerSegment isCompact={isCompact}/></Tooltip>
+        </Segment>
+      )
     }
 }

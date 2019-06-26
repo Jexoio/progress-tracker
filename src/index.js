@@ -7,41 +7,39 @@ import PropTypes from 'prop-types';
 import { colors } from '@atlaskit/theme';
 import ProgressBar, { Segment } from './progress-bar';
 
-import styles from './styles.css'
-
-export default class ProgressTracker extends Component<Props> {
+export default class ProgressTracker extends Component {
   static propTypes = {
     isCompact: PropTypes.bool,
     segments: PropTypes.array
   }
   static defaultProps = {
-      isCompact: false,
-      segments: [
-        {
-          proportionComplete: 50,
-          color: colors.G400,
-          label: 'Done'
-        },
-        {
-          proportionComplete: 20,
-          color: colors.B400,
-          label: 'In progress'
-        }
-      ]
+    isCompact: false,
+    segments: [
+      {
+        proportionComplete: .5,
+        color: colors.G400,
+        label: 'Done'
+      },
+      {
+        proportionComplete: .2,
+        color: colors.B400,
+        label: 'In progress'
+      }
+    ]
   };
 
   render() {
     const {
       isCompact,
       segments
-    } = this.props
+    } = this.props;
 
     return (
-        <ProgressBar isCompact={this.props.isCompact}>
-            {segments.map((proportionComplete, color, label) =>
-                <Segment color={color} proportion={proportionComplete} label={label}/>
-            )}
-        </ProgressBar>
+      <ProgressBar isCompact={isCompact}>
+        {segments.map(({proportionComplete, color, label}, index) =>
+          <Segment key={index} color={color} proportion={proportionComplete} tooltip={label} isCompact={isCompact}/>
+        )}
+      </ProgressBar>
     );
   }
 }
