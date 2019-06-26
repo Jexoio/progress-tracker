@@ -9,7 +9,7 @@ import ProgressBar, { Segment } from './progress-bar';
 
 import styles from './styles.css'
 
-export default class ExampleComponent extends Component<Props> {
+export default class ProgressTracker extends Component<Props> {
   static propTypes = {
     isCompact: PropTypes.bool,
     segments: PropTypes.array

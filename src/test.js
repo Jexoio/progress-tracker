@@ -1,7 +1,7 @@
-import ExampleComponent from '.'
+import ProgressTracker from '.'
 
-describe('ExampleComponent', () => {
+describe('ProgressTracker', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(ProgressTracker).toBeTruthy()
   })
 })
