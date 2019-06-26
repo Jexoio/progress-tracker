@@ -1,6 +1,6 @@
 {
   "name": "@jexo/progress-tracker",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Segmented progress tracker component for react",
   "main": "./dist/index.js",
   "scripts": {
@@ -34,11 +34,12 @@
     "url": "https://github.com/birox/progress-tracker/issues"
   },
   "devDependencies": {
+    "@atlaskit/tooltip": "^12.1.12",
     "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
@@ -52,19 +53,18 @@
     "jest-cli": "^23.6.0",
     "node-sass": "^4.7.2",
     "prop-types": "^15.6.0",
-    "react-addons-test-utils": "^15.5.1",
     "react": "^16.6.0",
+    "react-addons-test-utils": "^15.5.1",
     "react-dom": "^16.6.0",
     "react-hot-loader": "next",
     "react-test-renderer": "^16.0.0",
     "regenerator-runtime": "^0.12.1",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.23.1",
+    "styled-components": "^3.2.6",
     "webpack": "^4.9.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.4",
-    "@atlaskit/tooltip": "^12.1.12",
-    "styled-components": "^3.2.6"
+    "webpack-dev-server": "^3.1.4"
   },
   "peerDependencies": {
     "react": ">= 16.3.0",
