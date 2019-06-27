@@ -35,12 +35,6 @@ export default class ProgressBarSegment extends Component {
         cursor: 'pointer'
       }
 
-      const innerStyling = {
-        width: '100%',
-        display: 'flex',
-        height: (isCompact) ? 8 / 2 : 8
-      }
-
       const tooltipStyling = {
         visibility: 'hidden',
         width: '120px',
