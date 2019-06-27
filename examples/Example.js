@@ -12,7 +12,7 @@ class Example extends React.Component {
   render() {
     return (
       <div>
-        <ProgressTracker isCompact={true}/>
+        <ProgressTracker />
       </div>
     );
   }

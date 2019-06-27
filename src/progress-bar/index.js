@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Segment from './progress-bar-segment';
-import { ProgressBarContainer } from './styled';
+import { colors } from '@atlaskit/theme';
+
+const extracss = `.segment :first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.segment :last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.segment :hover .ttp {
+  visibility: visible;
+}`;
 
 export default class ProgressBar extends Component {
     static propTypes = {
@@ -16,14 +30,26 @@ export default class ProgressBar extends Component {
 
     render() {
       const {
-        isCompact,
-        children
+        children,
+        isCompact
       } = this.props;
 
+      const styling = {
+        backgroundColor: colors.N40,
+        borderRadius: 8 / 2 +'px',
+        display: 'flex',
+        height: (isCompact) ? 8 / 2 : 8 +'px',
+        overflow: 'hidden',
+        width: 100 +'%'
+      }
+
       return (
-        <ProgressBarContainer isCompact={isCompact}>
+        <div style={styling} className="progress-bar">
+          <style>
+            {extracss}
+          </style>
           {children}
-        </ProgressBarContainer>
+        </div>
       )
     }
 }

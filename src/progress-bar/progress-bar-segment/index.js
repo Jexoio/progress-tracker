@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Tooltip from '@atlaskit/tooltip';
 import PropTypes from 'prop-types';
-import { Segment, InnerSegment } from './styled';
+import { colors } from '@atlaskit/theme';
 
 export default class ProgressBarSegment extends Component {
     static propTypes = {
@@ -12,7 +11,7 @@ export default class ProgressBarSegment extends Component {
     }
 
     static defaultProps = {
-      color: '#0052CC',
+      color: colors.B400,
       proportion: 0,
       tooltip: null,
       isCompact: false
@@ -20,21 +19,48 @@ export default class ProgressBarSegment extends Component {
 
     render() {
       const {
-        color,
-        proportion,
         tooltip,
+        proportion,
+        color,
         isCompact
       } = this.props;
-      const width = proportion > 0 ? `${proportion * 100}%` : '0';
+
+      const width = this.props.proportion > 0 ? `${proportion * 100}%` : '0';
+
+      const segmentStyling = {
+        backgroundColor: color,
+        flexShrink: 0,
+        width: width,
+        transition: 'width 0.3s ease',
+        cursor: 'pointer'
+      }
+
+      const innerStyling = {
+        width: '100%',
+        display: 'flex',
+        height: (isCompact) ? 8 / 2 : 8
+      }
+
+      const tooltipStyling = {
+        visibility: 'hidden',
+        width: '120px',
+        backgroundColor: 'black',
+        color: '#fff',
+        textAlign: 'center',
+        borderRadius: '6px',
+        padding: '5px 0',
+        position: 'absolute',
+        zIndex: 1
+      }
 
       if (!tooltip) {
-        return <Segment color={color} width={width} />;
+        return <div style={segmentStyling} className="segment" />;
       }
 
       return(
-        <Segment color={color} width={width}>
-          <Tooltip content={tooltip} position="top"><InnerSegment isCompact={isCompact}/></Tooltip>
-        </Segment>
+        <div style={segmentStyling} className="segment">
+          <span style={tooltipStyling} className="ttp">{tooltip}</span>
+        </div>
       )
     }
 }
