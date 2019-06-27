@@ -21,8 +21,7 @@ export default class ProgressBarSegment extends Component {
       const {
         tooltip,
         proportion,
-        color,
-        isCompact
+        color
       } = this.props;
 
       const width = this.props.proportion > 0 ? `${proportion * 100}%` : '0';
