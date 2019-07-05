@@ -22,7 +22,8 @@ export default class ProgressBarSegment extends Component {
       const {
         tooltip,
         proportion,
-        color
+        color,
+        isCompact
       } = this.props;
 
       const width = this.props.proportion > 0 ? `${proportion * 100}%` : '0';
@@ -32,19 +33,13 @@ export default class ProgressBarSegment extends Component {
         flexShrink: 0,
         width: width,
         transition: 'width 0.3s ease',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        height: (isCompact) ? 8 / 2 : 8 +'px',
       }
 
-      const tooltipStyling = {
-        visibility: 'hidden',
-        width: '120px',
-        backgroundColor: 'black',
-        color: '#fff',
-        textAlign: 'center',
-        borderRadius: '6px',
-        padding: '5px 0',
-        position: 'absolute',
-        zIndex: 1
+      const segmentInnerStyling = {
+        height: (isCompact) ? 8 / 2 : 8 +'px',
+        width: '100%'
       }
 
       if (!tooltip) {
@@ -52,11 +47,9 @@ export default class ProgressBarSegment extends Component {
       }
 
       return(
-        <Tooltip content={tooltip}>
-          <div style={segmentStyling} className="segment">
-            <span style={tooltipStyling} className="ttp">{tooltip}</span>
-          </div>
-        </Tooltip>
+        <div style={segmentStyling} className="segment">
+          <Tooltip content={tooltip}><div style={segmentInnerStyling}></div></Tooltip>
+        </div>
       )
     }
 }
