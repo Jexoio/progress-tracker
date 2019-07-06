@@ -30,11 +30,12 @@ export default class ProgressTracker extends Component {
   render() {
     const {
       isCompact,
-      segments
+      segments,
+      tooltip
     } = this.props;
 
     return (
-      <ProgressBar isCompact={isCompact}>
+      <ProgressBar isCompact={isCompact} tooltip={tooltip}>
         {segments.map(({proportionComplete, color, label}, index) =>
           <Segment key={index} color={color} proportion={proportionComplete} tooltip={label} isCompact={isCompact}/>
         )}

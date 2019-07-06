@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Segment from './progress-bar-segment';
+import ReactTooltip from 'react-tooltip'
 
 const extracss = `.segment :first-child {
     border-top-left-radius: 4px;
@@ -14,6 +15,14 @@ const extracss = `.segment :first-child {
 
 .segment :hover .ttp {
   visibility: visible;
+}
+.progress-tooltip {
+  font-size: 12px;
+  padding: 2px 6px;
+  max-width: 240px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
 }
 .progress-tooltip:after {
   content: none !important;
@@ -33,7 +42,8 @@ export default class ProgressBar extends Component {
     render() {
       const {
         children,
-        isCompact
+        isCompact,
+        tooltip
       } = this.props;
 
       const styling = {
@@ -46,7 +56,8 @@ export default class ProgressBar extends Component {
       }
 
       return (
-        <div style={styling} className="progress-bar">
+        <div style={styling} className="progress-bar" data-tip={tooltip}>
+          {tooltip && (<ReactTooltip effect="solid" place="top" className="progress-tooltip"/>)}
           <style>
             {extracss}
           </style>
