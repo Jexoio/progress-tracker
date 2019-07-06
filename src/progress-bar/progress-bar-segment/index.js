@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { colors } from '@atlaskit/theme';
-import Tooltip from '@atlaskit/tooltip';
+import ReactTooltip from 'react-tooltip'
 
 export default class ProgressBarSegment extends Component {
     static propTypes = {
@@ -12,7 +11,7 @@ export default class ProgressBarSegment extends Component {
     }
 
     static defaultProps = {
-      color: colors.B400,
+      color: 'rgb(223, 225, 230)',
       proportion: 0,
       tooltip: null,
       isCompact: false
@@ -37,18 +36,14 @@ export default class ProgressBarSegment extends Component {
         height: (isCompact) ? 8 / 2 : 8 +'px',
       }
 
-      const segmentInnerStyling = {
-        height: (isCompact) ? 8 / 2 : 8 +'px',
-        width: '100%'
-      }
 
       if (!tooltip) {
         return <div style={segmentStyling} className="segment" />;
       }
 
       return(
-        <div style={segmentStyling} className="segment">
-          <Tooltip content={tooltip}><div style={segmentInnerStyling}></div></Tooltip>
+        <div style={segmentStyling} className="segment" data-tip={tooltip}>
+          <ReactTooltip effect="solid" place="top" className="progress-tooltip"/>
         </div>
       )
     }

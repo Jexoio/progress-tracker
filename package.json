@@ -34,8 +34,6 @@
     "url": "https://github.com/birox/progress-tracker/issues"
   },
   "devDependencies": {
-    "@atlaskit/theme": "^9.1.1",
-    "@atlaskit/tooltip": "^12.1.12",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
@@ -46,7 +44,7 @@
     "babel-loader": "^8.0.4",
     "chai": "^4.1.2",
     "clean-webpack-plugin": "^0.1.16",
-    "css-loader": "^1.0.1",
+    "css-loader": "^3.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^5.8.0",
@@ -73,5 +71,8 @@
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
+  },
+  "dependencies": {
+    "react-tooltip": "^3.10.0"
   }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Segment from './progress-bar-segment';
-import { colors } from '@atlaskit/theme';
 
 const extracss = `.segment :first-child {
     border-top-left-radius: 4px;
@@ -15,6 +14,9 @@ const extracss = `.segment :first-child {
 
 .segment :hover .ttp {
   visibility: visible;
+}
+.progress-tooltip:after {
+  content: none !important;
 }`;
 
 export default class ProgressBar extends Component {
@@ -35,7 +37,7 @@ export default class ProgressBar extends Component {
       } = this.props;
 
       const styling = {
-        backgroundColor: colors.N40,
+        backgroundColor: 'rgb(223, 225, 230)',
         borderRadius: 8 / 2 +'px',
         display: 'flex',
         height: (isCompact) ? 8 / 2 : 8 +'px',
